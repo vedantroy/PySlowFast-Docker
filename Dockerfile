@@ -37,7 +37,9 @@ RUN --mount=type=cache,target=/root/.cache micromamba run -n pyslowfast ./instal
 COPY ./install2.sh ./install2.sh
 RUN --mount=type=cache,target=/root/.cache micromamba run -n pyslowfast ./install2.sh
 
-COPY ./SlowFast ./SlowFast
+COPY ./SlowFastBuild ./SlowFast
 ENV PYTHONPATH "${PYTHONPATH}:/app/SlowFast"
-RUN cd SlowFast \
+RUN --mount=type=cache,target=/root/.cache cd SlowFast \
 	&& micromamba run -n pyslowfast python setup.py build develop
+COPY ./run_cpu.sh ./run_cpu.sh
+COPY ./run_gpu.sh ./run_gpu.sh

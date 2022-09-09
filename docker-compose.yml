@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  run:
+    build: .
+    entrypoint: /bin/bash -c 'micromamba run -n pyslowfast ./run_gpu.sh'
+    # volumes:
+    #   - .:/app
+    # This removes a certain memory restriction ??
+    # w/o the container crashes
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
