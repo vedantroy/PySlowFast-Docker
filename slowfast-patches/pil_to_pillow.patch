@@ -1,0 +1,13 @@
+diff --git a/setup.py b/setup.py
+index 185c7d6..0853b38 100644
+--- a/setup.py
++++ b/setup.py
+@@ -23,7 +23,7 @@ setup(
+         "opencv-python",
+         "pandas",
+         "torchvision>=0.4.2",
+-        "PIL",
++        "Pillow",
+         "sklearn",
+         "tensorboard",
+         "fairscale",
