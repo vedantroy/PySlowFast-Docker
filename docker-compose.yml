@@ -3,6 +3,8 @@ services:
   run:
     build: .
     entrypoint: /bin/bash -c 'micromamba run -n pyslowfast ./run_gpu.sh'
+    volumes:
+      - /home/vedant/Desktop/mvit/SlowFastBuild/configs/masked_ssl/k400_MVITv2_S_16x4_FT_debug.yaml:/cfg.yaml
     # volumes:
     #   - .:/app
     # This removes a certain memory restriction ??
