@@ -17,3 +17,10 @@ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
 
 then `sudo apt-get update && sudo apt-get install -y nvidia-docker2`  
 then `sudo systemctl restart docker`
+
+## Patch SlowFast to build
+```
+patch -s -p0 < ../slowfast-patches/pil_to_pillow.patch
+```
+- Specify setup.py
+- Do this in SlowFastBuild
